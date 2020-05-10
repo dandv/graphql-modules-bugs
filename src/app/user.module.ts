@@ -16,12 +16,5 @@ export const UserModule = new GraphQLModule({
       id: user => user._id,
       username: user => user.username
     },
-    Query: {
-      hello: (root, args, context) => {
-        console.log('The context:', context);
-        console.log('The authenticatedUser from the context:', context.authenticatedUser);
-        return 'World!'
-      }
-    }
   }
 });
