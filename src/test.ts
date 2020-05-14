@@ -1,13 +1,12 @@
-import 'reflect-metadata';
 import { graphql } from 'graphql';
-import { AppModule } from './app/app.module';
+import { UserModule, userDbModel } from './app/user.module';
 
 (async function main() {
-  const result = await graphql(AppModule.schema,
-    `{ hello }`,
-    null,
-    { test: 'foo' },
-  );
-  console.log(result);
-})();
+  // OK
+  console.log('userConst imported in test should be "db model exported from User module", got:', userDbModel);
 
+  const response = await graphql(UserModule.schema,
+    `{ hello }`,
+  );
+  console.log('Expected "world!", got:', response.data.hello);
+})();

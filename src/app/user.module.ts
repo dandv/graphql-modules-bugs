@@ -1,7 +1,13 @@
 import { GraphQLModule } from '@graphql-modules/core';
 import gql from 'graphql-tag';
+import { AuthModule } from './auth.module';
+
+export const userDbModel = 'db model exported from User module';
 
 export const UserModule = new GraphQLModule({
+  imports: [
+    AuthModule
+  ],
   typeDefs: gql`
     type User {
       id: String
@@ -11,10 +17,12 @@ export const UserModule = new GraphQLModule({
       hello: String
     }
   `,
+
   resolvers: {
-    User: {
-      id: user => user._id,
-      username: user => user.username
+    Query: {
+      hello() {
+        return 'world!';
+      }
     },
   }
 });

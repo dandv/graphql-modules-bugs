@@ -1,11 +1,9 @@
-import 'reflect-metadata';
-import { AppModule } from './app/app.module';
+import { UserModule } from './app/user.module';
 import { ApolloServer } from 'apollo-server';
 
 const server = new ApolloServer({
-  modules: [AppModule],
+  modules: [UserModule],
   context: session => session
 });
 
-server.listen(4000);
-console.log('Listening on port 4000...');
+server.listen(4000).then(() => console.log('Listening on port 4000...'));
