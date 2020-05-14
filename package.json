@@ -16,5 +16,8 @@
     "graphql": "^15.0.0",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.2"
+  },
+  "devDependencies": {
+    "reflect-metadata": "^0.1.13"
   }
 }

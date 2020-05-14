@@ -8,3 +8,9 @@ npm test
 ```
 
 # Bug 2 - TBD
+```shell script
+git checkout use-di
+npm test
+```
+
+The injector fails to get the provider, but no error reaches the developer.
