@@ -3,10 +3,10 @@ import { UserModule, userDbModel } from './app/user.module';
 
 (async function main() {
   // OK
-  console.log('userConst imported in test should be "db model exported from User module", got:', userDbModel);
+  console.log('userDbModel.id imported in test should be "db model exported from User module", got:', userDbModel.id);
 
   const response = await graphql(UserModule.schema,
-    `{ hello }`,
+    `{ authed }`,
   );
-  console.log('Expected "world!", got:', response.data.hello);
+  console.log('Expected "Unreachable code due to swallowed error", got:', response.data.authed);
 })();
